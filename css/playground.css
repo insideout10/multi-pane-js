@@ -1,0 +1,62 @@
+.container {
+    margin: 0 auto;
+    width: 500px;
+    height: 400px;
+    background: #519fff;
+}
+
+.viewport {
+    margin: 0 auto;
+    width: 400px;
+    height: 100%;
+    background: #f6ffc1;
+    overflow: hidden;
+}
+
+ul.wl-pane-indicator, .viewport ul {
+    list-style: none;
+    white-space: nowrap;
+    margin: 0;
+    padding: 0;
+}
+
+ul.wl-pane-indicator li, .viewport ul li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+ul.wl-pane-indicator {
+    width: 100%;
+    text-align: center;
+}
+
+ul.wl-pane-indicator li {
+    font: normal normal normal 14px/1 FontAwesome;
+    vertical-align: -6px;
+    color: #fff;
+    margin: 2px 8px;
+}
+
+ul.wl-pane-indicator li:before {
+    content: "\f1db";
+}
+
+ul.wl-pane-indicator li.active:before {
+    content: "\f111";
+}
+
+.viewport ul {
+    transition: margin-left 1s;
+}
+
+.viewport ul li {
+    width: 396px;
+    height: 100%;
+    border-left: 0;
+    border-right: 4px solid gray;
+}
+
+.viewport ul li:last-child {
+    border-right: 0;
+}
