@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+  - "6"
+
+addons:
+  sauce_connect:
+    username: "ziodave"
+  jwt:
+    secure: "GZyNY7/+/u+qjqW4n8ucA7sEzSsHeR4A8D68ZU7LPmVLpNM2aHHY66DM1IwxEp/hHV5P69O7PZOrYozcgViffYaLa+2tQbk6zsDxqV8uIQ6f6aqSf0sCr4aDMQf2JWvpqCEeDJngnrIFzp2t+ostQSN+j7lnbseslZRo7VnqsvPkcpYwpHoxbJvRDHNxyB+ZUHIlNFXHkgpMTRj7TncKzTUBrHII5sD1UtXe/MV2sxdxWC8vbBRMvdMa5zALyCX/T0oGLq2nzkc7l3o9BqawY0vfOAYur7LOT5XntU9f8jljs3zy4JjnZ5IxLXHfdxDw1Td+E8XbeRWAgnJg+MLJF9HAK5jKWT917jpMmtALmI8dNF+O62cRQsQqqiuSF3bbMwp/B3lHIP5fOM32NUEDlnsc0ytBPFs1bXRNBFAeEUcCkXoImlSqBV66oZHjTVP/LVK209q798yOClH98w1ykJcYAszzTcg78lPA9AM6Ge/umcX7DZw4u9/NQbHNY9Lm49oNkj5fOrYn0SMeQI+gu0bKzvft8quUuBrJXSP1bXRWvQb1crlh9Igj5UngOGkevnC4/pQTB/lHfWqPWAV1YNq8ksbHgAJSy96NAs/JuVGz6Q/dcwPAifkkCzrxjzpg26EsjY+mImUcQYsPiFWLG6xG2YRV2mXeYRZJV7/2EVw="
