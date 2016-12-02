@@ -2,6 +2,8 @@
 
 body
 	background-color: #F5F5F5
+	padding: 0
+	margin: 0
 	// Define fixed height as the viewport.
 	height: 100vh
 	// Define global text color. 
@@ -30,7 +32,7 @@ body
 	border: 16px solid #F5F5F5
 	background-color: #519fff
 	// Sizing the element in smaller screens.
-	@media screen and (max-width: 440px)
+	@media screen and (max-width: 550px)
 		top: 0
 		height: 100%
 
@@ -67,6 +69,9 @@ ul.wl-pane-indicator
 	// Positioning.
 	position: relative
 	top: -20px
+	// Slide down in smaller screens.
+	@media screen and (max-width: 550px)
+		top: 0
 	// Reset default.
 	padding: 0
 	margin: 0
@@ -142,7 +147,7 @@ input[type="button"],
 .viewport 
 	// Positioning.
 	position: absolute
-	top: 56px
+	bottom: 24px
 	left: 50%
 	transform: translateX(-50%)
 	margin: auto
@@ -152,9 +157,9 @@ input[type="button"],
 	width: 480px
 	height: 288px
 	// Sizing for smaller screens.
-	@media screen and (max-width: 440px)
-		width: 303px
-		height: 408px
+	@media screen and (max-width: 550px)
+		width: calc(100% - 32px)
+		height: calc(100vh - 136px)
 	// Hiding external content.
 	overflow: hidden
 
@@ -178,8 +183,10 @@ input[type="button"],
 			// Positioning.
 			position: relative
 			// Size
-			width: 480px
+			width: calc(100vw - 64px)
+			max-width: 480px
 			height: 100%
+
 
 .page-title
 	// Reset default.
@@ -200,7 +207,7 @@ input[type="button"],
 	margin: auto
 	margin-bottom: 16px
 	// Size.
-	width: 400px
+	max-width: 400px
 	// Text job.
 	font-weight: 200
 	font-size: 16px
@@ -212,8 +219,7 @@ ul.page-list
 	text-align: left
 	// Size.
 	height: 80px
-	width: 480px
-	// 
+	max-width: 480px
 	li
 		// Reset default.
 		height: 40px
@@ -237,7 +243,8 @@ select
 	margin: auto
 	position: relative
 	// Size.
-	width: 400px
+	width: calc(100vw - 64px)
+	max-width: 400px
 	height: 32px
 	// Iternal spacing.
 	padding: 0 12px
@@ -260,11 +267,18 @@ select
   text-overflow: ellipsis
 
 p.page-det
+	// Positioning
+	display: block
+	margin: 8px auto
+	// Text job.
 	font-weight: 300
 	font-size: 12px
 	line-height: 16px
-	margin: 8px auto
-	width: 400px
+	// Reset the UL nowrap
+	white-space: normal
+	// Size.
+	width: calc(100vw - 64px)
+	max-width: 400px
 
 .radio-wrapper
 	margin-bottom: 16px
