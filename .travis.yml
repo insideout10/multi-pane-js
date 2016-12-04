@@ -3,8 +3,7 @@ node_js:
   - "6"
 
 addons:
-  sauce_connect:
-    username: "ziodave"
+  sauce_connect: true
 
 env:
   global:
