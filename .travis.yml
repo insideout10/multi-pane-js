@@ -39,6 +39,7 @@ before_script:
   - .ci/travis/install_wp_cli.sh
   # Install WordPress.
   - .ci/travis/install_wordpress.sh
+  - node --version
   # Install Node dependencies.
   - npm install
 
