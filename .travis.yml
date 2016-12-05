@@ -27,6 +27,6 @@ before_script:
   # Create WordPress' database.
   - mysql -e 'create database wordpress default charset utf8mb4 default collate utf8mb4_general_ci;'
   # Install Apache.
-  - ./ci/travis/install_apache.sh
+  - .ci/travis/install_apache.sh
   # Install wp-cli.
-  - ./ci/travis/install_wp_cli.sh
+  - .ci/travis/install_wp_cli.sh
