@@ -43,6 +43,7 @@ before_script:
   - node --version
   # Install Node dependencies.
   - npm install
+  - curl http://localhost
 
 # Finally launch the script.
 script: npm run test:e2e
