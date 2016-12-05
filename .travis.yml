@@ -1,6 +1,15 @@
-language: node_js
-node_js:
-  - "6"
+# We need `sudo` because we're going to install Apache with PHP.
+# See https://docs.travis-ci.com/user/ci-environment/#Virtualization-environments
+sudo: required
+
+# Set the language to PHP since we're going to setup a WordPress web site.
+language: php
+
+php:
+  - "5.6"
+
+#node_js:
+#  - "6"
 
 addons:
   sauce_connect: true
@@ -9,3 +18,15 @@ env:
   global:
     - secure: "xeBuLOq2kr8QEzHzMOG/3Xiq3EtlDRfULbqz0RMAIh69aNhi67bJ1K9/ICXxnVsZNqmB5zrYQyCt/B+3QSxEp2mDw7rwm4w3RDJYfkpENVU4I7Zkew+MRcQ9RZELRtGSNVGYFFx2JdwAWSVClnWOAatQN332ZCU/umnr1qZfjX1ym6ZJ+xMPQxUK+JhEcJG7N/sYZwpzOdwd+S+Vpg9ecZgNGteo3O0RTpqCZpCRKN0B15T/MyUrv3smzc43sUoGx44HtU5/JfeJnf2Fuv6xdbBg9vpvQjMSIkTqf4aJGm4aDAOKhltOb+keRGxacpJv2Tw3QIM5s0t5mw7f8QnGdN+GhipvINqDBhJ/vCk6lmmSFQahEzRjD4ej8MspAWhcEwH2aSZNVxuAuyM6bL+L8+qcQmdzweN+5+cLwp82YNDEm7KSLkekiMSbcTRvEAmSzNKEOSA+oyAjA3YujrFBpTalSTiyLl66eVdOYWAQp+AfNtTYRA49SEpvPpSQJZ3CjeSruuHP+QhAGCoLdyxJ2eM3WO7sD9T2ynSJOpKeSMeVlfN+FZkqhgfBOdl2NKafyJuoBGvTyhpTW4HExBnuRmWdwlMv4YcT4dI8Lgtgs2A6BnfeFmrBHpOwfdk3nQQdz2+Gqhk/Hcp9QedNivg7SDP4BTEBuqa0/VL1xI3WhSM="
     - secure: "ZPfye+W5VUmTjcaz1wSQywjFdTZsvRjcPUXf+dRUOtVjprQSRA+XboTDB3vYBxFP7+45pFpAwB51BlOb1tGWaXmcrPLAKyutoZcjlWs8F32YgMjkBT0cHbF/K3zrDpS0jw2gIATXDsqr57KbtW63w4HohDaiWtj1yxfp5FY7/ULDgB0pv100MvXJvs0kGuVkfiv9/MxpkmhuNF8P1wEhWKXwzySLRdGxRzdp5wc2/KuetA7FoXgGrBrmUWvsDzH56TgJYxmh3BI9QqCJfjTFVS5rJ15CkZGT6LajfXNL1FtHXXDbMmgZx9h/Wrpdl0jxQd2F7eEWF3hhFG5br/7ufseAxiO90seyNOslyiMiKVhC6XrD6B0Q2trD1FpAsLPaDgaHYVRV75rP9w6I7j1xEJUWHPrrBS6FndaoeN0qQbnXJuz3jPNoxzWlbCLMNaEX8mLeRr+GB5AFLTWNox/yVDR5LAF6BoAvj+MPRQsiW+Gc+XdrZFiE20Yhgvmu/KTUiwOgWjsxRnylgzO5t/j5+SHa4MdgZgeYPe/6uCXTSeMRvmDsLtkcYPKzXSIUVqXJzLOA6GtFRFqRnRW10cjr9i6cDUVaH/CvwRH/ZkgvyqwMYXNE0vMFbITKr0Sorsi3dVovTwKex3nUoX3ajPoH36lma/JC6lLPPfDqn2/j238="
+
+services:
+  # Require MySQL.
+  - mysql
+
+before_script:
+  # Create WordPress' database.
+  - mysql -e 'create database wordpress default charset utf8mb4 default collate utf8mb4_general_ci;'
+  # Install Apache.
+  - ./ci/travis/install_apache.sh
+  # Install wp-cli.
+  - ./ci/travis/install_wp_cli.sh
