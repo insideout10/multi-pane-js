@@ -10,6 +10,8 @@ exports.config = {
     //
     user: process.env.SAUCE_USERNAME,
     key: process.env.SAUCE_ACCESS_KEY,
+
+    // `sauceConnect` must be false when running in Travis-CI, since Travis-CI is providing SauceConnect.
     // sauceConnect: true,
 
     //
