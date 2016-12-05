@@ -4,7 +4,7 @@ describe('random', function () {
 
     it('opens WordPress', function () {
 
-        browser.url('http://www.google.com/');
+        browser.url('http://localhost/');
         var title = browser.getTitle();
         console.log('Title is: ' + title);
 
