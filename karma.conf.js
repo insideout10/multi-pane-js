@@ -67,7 +67,7 @@ module.exports = function (config) {
             'test/*.js'
         ],
         reporters: ['progress', 'saucelabs'],
-        port: 9876,
+        port: 80,
         colors: true,
         sauceLabs: {
             testName: 'Karma and Sauce Labs demo',

@@ -30,3 +30,10 @@ before_script:
   - .ci/travis/install_apache.sh
   # Install wp-cli.
   - .ci/travis/install_wp_cli.sh
+  # Install WordPress.
+  - .ci/travis/install_wordpress.sh
+  # Install Node dependencies.
+  - npm install
+
+# Finally launch the script.
+script: node test
