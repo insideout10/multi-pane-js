@@ -1,5 +1,5 @@
 exports.config = {
-    
+
     //
     // =================
     // Service Providers
@@ -10,8 +10,12 @@ exports.config = {
     //
     user: process.env.SAUCE_USERNAME,
     key: process.env.SAUCE_ACCESS_KEY,
-    
-    
+    sauceConnect: true,
+    sauceConnectOpts: {
+        port: 80
+    },
+
+
     //
     // ==================
     // Specify Test Files
@@ -128,7 +132,7 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: http://webdriver.io/guide/testrunner/reporters.html
     reporters: ['dot'],
-    
+
     //
     // Options to be passed to Jasmine.
     jasmineNodeOpts: {
@@ -139,11 +143,11 @@ exports.config = {
         // The Jasmine framework allows interception of each assertion in order to log the state of the application
         // or website depending on the result. For example, it is pretty handy to take a screenshot every time
         // an assertion fails.
-        expectationResultHandler: function(passed, assertion) {
+        expectationResultHandler: function (passed, assertion) {
             // do something
         }
     },
-    
+
     //
     // =====
     // Hooks
