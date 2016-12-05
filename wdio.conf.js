@@ -56,7 +56,10 @@ exports.config = {
         // 5 instances get started at a time.
         maxInstances: 5,
         //
-        browserName: 'firefox'
+        browserName: 'firefox',
+        'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+        name: 'integration',
+        build: process.env.TRAVIS_BUILD_NUMBER
     }],
     //
     // ===================
