@@ -36,13 +36,10 @@ before_script:
   - .ci/travis/install_wp_cli.sh
   # Install WordPress.
   - .ci/travis/install_wordpress.sh
-  # Install an update version of NodeJS.
-#  - .ci/travis/install_nodejs.sh
+  # Install an update version of NodeJS. Note that this cannot be put in a sh file as nvm must retain its choice.
   - . $HOME/.nvm/nvm.sh
-  - nvm install stable
-  - nvm use stable
-  - npm install
-
+  - nvm install 6 --reinstall-packages-from=node
+  - nvm use 6
   - node --version
   # Install Node dependencies.
   - npm install
