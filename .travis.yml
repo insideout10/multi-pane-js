@@ -39,4 +39,4 @@ before_script:
   - npm install
 
 # Finally launch the script.
-script: npm start test:e2e
+script: npm run test:e2e
