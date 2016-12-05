@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
-    "test": "./node_modules/karma/bin/karma start --single-run"
+    "test": "./node_modules/karma/bin/karma start --single-run",
+    "test:e2e": "./node_modules/.bin/wdio wdio.conf.js",
   },
   "author": "",
   "license": "ISC",
