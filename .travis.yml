@@ -36,4 +36,4 @@ before_script:
   - npm install
 
 # Finally launch the script.
-script: node test
+script: npm test
