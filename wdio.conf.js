@@ -66,7 +66,7 @@ exports.config = {
         // * https://github.com/webdriverio/webdriverio/blob/master/examples/cloudservices/webdriverio.saucelabs.js
         browserName: 'chrome',
         version: '54.0',
-        platform: 'WINDOWS',
+        platform: 'Windows 10',
         'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
         name: 'integration',
         build: process.env.TRAVIS_BUILD_NUMBER,
