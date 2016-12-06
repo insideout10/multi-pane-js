@@ -30,16 +30,12 @@ services:
 before_script:
   # Create WordPress' database.
   - mysql -e 'create database wordpress default charset utf8mb4 default collate utf8mb4_general_ci;'
-  # We'll install the WordPress site in the htdocs subfolder.
-  - mkdir htdocs && cd htdocs
   # Install Apache.
-  - ../.ci/travis/install_apache.sh
+  - .ci/travis/install_apache.sh
   # Install wp-cli.
-  - ../.ci/travis/install_wp_cli.sh
+  - .ci/travis/install_wp_cli.sh
   # Install WordPress.
-  - ../.ci/travis/install_wordpress.sh
-  # Move back to the parent folder.
-  - cd -
+  - .ci/travis/install_wordpress.sh
   # Install an update version of NodeJS. Note that this cannot be put in a sh file as nvm must retain its choice.
   - . $HOME/.nvm/nvm.sh
   - nvm install 6 --reinstall-packages-from=node
