@@ -1,5 +1,6 @@
 #!/bin/sh
 
+mkdir htdocs
 cd htdocs
 wp core download
 wp core config --dbname=wordpress --dbuser=root
