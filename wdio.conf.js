@@ -12,7 +12,9 @@ exports.config = {
     key: process.env.SAUCE_ACCESS_KEY,
 
     // `sauceConnect` must be false when running in Travis-CI, since Travis-CI is providing SauceConnect.
-    // sauceConnect: true,
+    // Remember: !undefined === true
+    // For a list of Travis provided environment variables: https://docs.travis-ci.com/user/environment-variables/#Default-Environment-Variables
+    sauceConnect: !process.env.CI,
 
     //
     // ==================
@@ -57,11 +59,25 @@ exports.config = {
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
         maxInstances: 5,
-        //
-        browserName: 'firefox',
+
+        // See:
+        // * https://wiki.saucelabs.com/display/DOCS/Platform+Configurator#/
+        // * https://github.com/SeleniumHQ/selenium/wiki/DesiredCapabilities
+        // * https://github.com/webdriverio/webdriverio/blob/master/examples/cloudservices/webdriverio.saucelabs.js
+        browserName: 'chrome',
+        version: '54.0',
+        platform: 'WINDOWS',
         'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
         name: 'integration',
-        build: process.env.TRAVIS_BUILD_NUMBER
+        build: process.env.TRAVIS_BUILD_NUMBER,
+
+        // If using Open Sauce (https://saucelabs.com/opensauce/),
+        // capabilities must be tagged as "public" for the jobs's status
+        // to update (failed/passed). If omitted on Open Sauce, the job's
+        // status will only be marked "Finished." This property can be
+        // be omitted for commercial (private) Sauce Labs accounts.
+        // Also see https://support.saucelabs.com/customer/portal/articles/2005331-why-do-my-tests-say-%22finished%22-instead-of-%22passed%22-or-%22failed%22-how-do-i-set-the-status-
+        'public': true
     }],
     //
     // ===================
